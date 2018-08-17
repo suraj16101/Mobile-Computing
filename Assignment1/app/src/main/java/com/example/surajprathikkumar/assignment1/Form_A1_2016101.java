@@ -8,43 +8,54 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class Form_A1_2016101 extends AppCompatActivity {
+
+    ArrayList Fstate=new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form__a1_2016101);
+        Fstate.add("Created");
         Log.i("lifecycle", " State of activity Assignment1 is Created");
         Toast.makeText(this,"Assignment1 is Created",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("lifecycle","State of activity Assignment1 is Started");
+
+        Log.i("lifecycle","State of activity Assignment1 is Started from "+Fstate.get(Fstate.size()-1));
+        Fstate.add("Started");
         Toast.makeText(this,"Assignment1 is Started",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("lifecycle","State of activity Assignment1 is Resumed from Pause");
+        Log.i("lifecycle","State of activity Assignment1 is Resumed from "+Fstate.get(Fstate.size()-1));
+        Fstate.add("Resumed");
         Toast.makeText(this,"Assignment1 is Resumed",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i("lifecycle","State of activity Assignment1 is Paused from Resume");
+        Log.i("lifecycle","State of activity Assignment1 is Paused from "+Fstate.get(Fstate.size()-1));
+        Fstate.add("Paused");
         Toast.makeText(this,"Assignment1 is Paused",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("lifecycle","State of activity Assignment1 is Stopped from Pause");
+        Log.i("lifecycle","State of activity Assignment1 is Stopped from "+Fstate.get(Fstate.size()-1));
+        Fstate.add("Stopped");
         Toast.makeText(this,"Assignment1 is Stopped",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("lifecycle","State of activity Assignment1 is Destroyed");
+        Log.i("lifecycle","State of activity Assignment1 is Destroyed from "+Fstate.get(Fstate.size()-1));
+        Fstate.add("Destroyed");
         Toast.makeText(this,"Assignment1 is Destroyed",Toast.LENGTH_SHORT).show();
     }
 

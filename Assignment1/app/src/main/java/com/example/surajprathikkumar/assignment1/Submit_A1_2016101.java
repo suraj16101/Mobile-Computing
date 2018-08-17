@@ -11,7 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class Submit_A1_2016101 extends AppCompatActivity {
+
+    ArrayList Sstate=new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,35 +44,43 @@ public class Submit_A1_2016101 extends AppCompatActivity {
 
         tv4.setText("Courses:  "+" 1."+c1+"\n"+"                   2."+c2+"\n"+"                   3."+c3+"\n"+"                   4."+c4);
 
+        Log.i("lifecycle","State of activity Submit is Created");
+        Sstate.add("Created");
+        Toast.makeText(this,"Submit is Created",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("lifecycle","State of activity Submit is Started");
+        Log.i("lifecycle","State of activity Submit is Started from "+Sstate.get(Sstate.size()-1));
+        Sstate.add("Started");
         Toast.makeText(this,"Submit is Started",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("lifecycle","State of activity Submit is Resumed from Pause");
+        Log.i("lifecycle","State of activity Submit is Resumed from "+Sstate.get(Sstate.size()-1));
+        Sstate.add("Resumed");
         Toast.makeText(this,"Submit is Resumed",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i("lifecycle","State of activity Submit is Paused from Resume");
+        Log.i("lifecycle","State of activity Submit is Paused from "+Sstate.get(Sstate.size()-1));
+        Sstate.add("Paused");
         Toast.makeText(this,"Submit is Paused",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("lifecycle","State of activity Submit is Stopped from Pause");
+        Log.i("lifecycle","State of activity Submit is Stopped from "+Sstate.get(Sstate.size()-1));
+        Sstate.add("Stopped");
         Toast.makeText(this,"Submit is Stopped",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("lifecycle","State of activity Submit is Destroyed");
+        Log.i("lifecycle","State of activity Submit is Destroyed from "+Sstate.get(Sstate.size()-1));
+        Sstate.add("Destroyed");
         Toast.makeText(this,"Submit is Destroyed",Toast.LENGTH_SHORT).show();
     }
 
