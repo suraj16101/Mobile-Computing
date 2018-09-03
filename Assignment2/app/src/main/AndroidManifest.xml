@@ -23,17 +23,12 @@
         </activity>
 
         <service
-            android:name=".playservice"
-            android:exported="false" />
+            android:name=".playservice" />
         <service
-            android:name=".Download"
-            android:enabled="true"
-            android:exported="true" />
+            android:name=".Download"/>
 
         <receiver
-            android:name=".AppReceiver"
-            android:enabled="true"
-            android:exported="true">
+            android:name=".AppReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 

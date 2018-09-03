@@ -45,4 +45,8 @@ public class main_A2_2016101 extends AppCompatActivity {
             Toast.makeText(this,"Network connection not available",Toast.LENGTH_SHORT).show();
         }
     }
+
+
+
+
 }
