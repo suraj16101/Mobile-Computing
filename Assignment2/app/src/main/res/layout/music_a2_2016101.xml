@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="57dp"
+        android:layout_height="44dp"
+        android:src="@drawable/images" />
+
+
+    <TextView
+        android:id="@+id/songname"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:layout_weight="1"
+        android:text="TextView" />
+
+    <Button
+    android:id="@+id/play1"
+    android:layout_width="63dp"
+    android:layout_height="44dp"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/play" />
+    <Button
+        android:id="@+id/pause1"
+        android:layout_width="57dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/pause" />
+
+
+</LinearLayout>
