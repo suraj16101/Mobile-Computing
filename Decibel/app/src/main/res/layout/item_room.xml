@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:card_view="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="2dp"
+	card_view:cardBackgroundColor="#fff"
+	card_view:cardCornerRadius="5dp"
+	card_view:cardElevation="2dp"
+	card_view:cardUseCompatPadding="true">
+
+	<!--Room Name
+	Noise Strength
+	Region
+	Vacancy
+	Floor
+	-->
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="@dimen/value_10dp">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/tv_room"
+				android:textColor="@color/gray_9"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAllCaps="true"
+				android:textSize="@dimen/value_18sp"/>
+
+			<TextView
+				android:id="@+id/tv_region"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+			<TextView
+				android:id="@+id/tv_floor"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/value_10dp"
+			android:orientation="horizontal">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="@dimen/value_10dp"
+				android:drawablePadding="@dimen/value_10dp"
+				android:drawableStart="@drawable/ic_noise"
+				android:gravity="center_vertical"
+				android:textColor="@color/gray_5"
+				android:text="Noise Level"
+				android:textSize="@dimen/value_16sp"/>
+
+			<TextView
+				android:id="@+id/tv_noise_strength"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center_vertical"
+				android:textColor="@color/gray_6"
+				android:textSize="@dimen/value_16sp"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/value_10dp"
+			android:orientation="horizontal">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="@dimen/value_10dp"
+				android:drawablePadding="@dimen/value_10dp"
+				android:drawableStart="@drawable/ic_desk"
+				android:gravity="center_vertical"
+				android:textColor="@color/gray_5"
+				android:text="Vacant Seats"
+				android:textSize="@dimen/value_16sp"/>
+
+			<TextView
+				android:id="@+id/tv_vacancy"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center_vertical"
+				android:textColor="@color/gray_6"
+				android:textSize="@dimen/value_16sp"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</android.support.v7.widget.CardView>

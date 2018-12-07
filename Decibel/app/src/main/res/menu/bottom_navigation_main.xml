@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<item
+		android:id="@+id/action_home"
+		android:enabled="true"
+		android:icon="@drawable/ic_home"
+		android:title="@string/home"
+		app:showAsAction="ifRoom|withText"/>
+	<item
+		android:id="@+id/action_noise"
+		android:enabled="true"
+		android:icon="@drawable/ic_mute"
+		android:title="@string/rooms_with_least_noise"
+		app:showAsAction="ifRoom|withText"/>
+
+	<item
+		android:id="@+id/action_vacant"
+		android:enabled="true"
+		android:icon="@drawable/ic_seats"
+		android:title="@string/rooms_with_most_vacant_seats"
+		app:showAsAction="always|withText"/>
+
+</menu>

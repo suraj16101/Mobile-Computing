@@ -1,0 +1,7 @@
+<resources>
+	<string name="app_name">Decibel</string>
+
+	<string name="home">Home</string>
+	<string name="rooms_with_least_noise">Least Noise</string>
+	<string name="rooms_with_most_vacant_seats">Most Vacant Seats</string>
+</resources>
