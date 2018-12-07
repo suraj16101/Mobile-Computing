@@ -3,6 +3,7 @@ package com.quiz.quiz_app;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -25,6 +26,7 @@ public class Main_A3_2016101 extends AppCompatActivity
     DatabaseHelper myDb;
     private ProgressDialog progressDialog;
     public static final int DIALOG_UPLOAD_PROGRESS = 0;
+    private Boolean firstTime = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,47 +34,63 @@ public class Main_A3_2016101 extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__a3_2016101);
         myDb = new DatabaseHelper(this);
-//        boolean insert1 = myDb.addvalue("The Language that the computer can understand is called Machine Language.","True");
-//        boolean insert2 = myDb.addvalue("Magnetic Tape used random access method.","False");
-//        boolean insert3 = myDb.addvalue("Twitter is an online social networking and blogging service.","False");
-//        boolean insert4 = myDb.addvalue("Worms and trojan horses are easily detected and eliminated by antivirus software.","True");
-//        boolean insert5 = myDb.addvalue("Dot-matrix, Deskjet, Inkjet and Laser are all types of Printers.","True");
-//        boolean insert6 = myDb.addvalue("GNU / Linux is a open source operating system.","True");
-//        boolean insert7 = myDb.addvalue("Whaling / Whaling attack is a kind of phishing attacks that target senior executives and other high profile to access valuable information.","True");
-//        boolean insert8 = myDb.addvalue("Freeware is software that is available for use at no monetary cost.","True");
-//        boolean insert9 = myDb.addvalue("IPv6 Internet Protocol address is represented as eight groups of four Octal digits.","False");
-//        boolean insert10 = myDb.addvalue("The hexadecimal number system contains digits from 1 - 15.","False");
-//        boolean insert11 = myDb.addvalue("Octal number system contains digits from 0 - 7.","True");
-//        boolean insert12 = myDb.addvalue("MS Word is a hardware.","False");
-//        boolean insert13 = myDb.addvalue("CPU controls only input data of computer.","False");
-//        boolean insert14 = myDb.addvalue("CPU stands for Central Performance Unit.","False");
-//        boolean insert15 = myDb.addvalue("When you include multiple addresses in a message, you should separate each address with a period (.)","False");
-//        boolean insert16 = myDb.addvalue("You cannot format text in an e-mail message.","False");
-//        boolean insert17 = myDb.addvalue("You must include a subject in any mail message you compose.","False");
-//        boolean insert18 = myDb.addvalue("If you want to respond to the sender of a message, click the Respond button.","False");
-//        boolean insert19 = myDb.addvalue("You type the body of a reply the same way you would type the body of a new message.","True");
-//        boolean insert20 = myDb.addvalue("When you reply to a message, you need to enter the text in the Subject: field.","False");
-//        boolean insert21 = myDb.addvalue("You can only print one copy of a selected message.","False");
-//        boolean insert22 = myDb.addvalue("You cannot preview a message before you print it.","False");
-//        boolean insert23 = myDb.addvalue("There is only one way to print a message.","False");
-//        boolean insert24 = myDb.addvalue("When you print a message, it is automatically deleted from your Inbox.","False");
-//        boolean insert25 = myDb.addvalue("You need to delete a contact and create a new one to change contact information.","False");
-//        boolean insert26 = myDb.addvalue("You must complete all fields in the Contact form before you can save the contact.","False");
-//        boolean insert27 = myDb.addvalue("You cannot edit Contact forms.","False");
-//        boolean insert28 = myDb.addvalue("You should always open and attachment before saving it.","False");
-//        boolean insert29 = myDb.addvalue("You can delete e-mails from a Web-based e-mail account.","True");
-//        boolean insert30 = myDb.addvalue("You can store Web-based e-mail messages in online folders.","True");
-//
-//
-//
-//        if(insert1==true && insert30==true)
-//        {
-//            Log.i("Insert","Hogaya");
-//        }
-//        else{
-//            Log.i("Insert","No");
-//        }
+        if (isFirstTime()==true)
+        {
+            boolean insert1 = myDb.addvalue("The Language that the computer can understand is called Machine Language.","True");
+            boolean insert2 = myDb.addvalue("Magnetic Tape used random access method.","False");
+            boolean insert3 = myDb.addvalue("Twitter is an online social networking and blogging service.","False");
+            boolean insert4 = myDb.addvalue("Worms and trojan horses are easily detected and eliminated by antivirus software.","True");
+            boolean insert5 = myDb.addvalue("Dot-matrix, Deskjet, Inkjet and Laser are all types of Printers.","True");
+            boolean insert6 = myDb.addvalue("GNU / Linux is a open source operating system.","True");
+            boolean insert7 = myDb.addvalue("Whaling / Whaling attack is a kind of phishing attacks that target senior executives and other high profile to access valuable information.","True");
+            boolean insert8 = myDb.addvalue("Freeware is software that is available for use at no monetary cost.","True");
+            boolean insert9 = myDb.addvalue("IPv6 Internet Protocol address is represented as eight groups of four Octal digits.","False");
+            boolean insert10 = myDb.addvalue("The hexadecimal number system contains digits from 1 - 15.","False");
+            boolean insert11 = myDb.addvalue("Octal number system contains digits from 0 - 7.","True");
+            boolean insert12 = myDb.addvalue("MS Word is a hardware.","False");
+            boolean insert13 = myDb.addvalue("CPU controls only input data of computer.","False");
+            boolean insert14 = myDb.addvalue("CPU stands for Central Performance Unit.","False");
+            boolean insert15 = myDb.addvalue("When you include multiple addresses in a message, you should separate each address with a period (.)","False");
+            boolean insert16 = myDb.addvalue("You cannot format text in an e-mail message.","False");
+            boolean insert17 = myDb.addvalue("You must include a subject in any mail message you compose.","False");
+            boolean insert18 = myDb.addvalue("If you want to respond to the sender of a message, click the Respond button.","False");
+            boolean insert19 = myDb.addvalue("You type the body of a reply the same way you would type the body of a new message.","True");
+            boolean insert20 = myDb.addvalue("When you reply to a message, you need to enter the text in the Subject: field.","False");
+            boolean insert21 = myDb.addvalue("You can only print one copy of a selected message.","False");
+            boolean insert22 = myDb.addvalue("You cannot preview a message before you print it.","False");
+            boolean insert23 = myDb.addvalue("There is only one way to print a message.","False");
+            boolean insert24 = myDb.addvalue("When you print a message, it is automatically deleted from your Inbox.","False");
+            boolean insert25 = myDb.addvalue("You need to delete a contact and create a new one to change contact information.","False");
+            boolean insert26 = myDb.addvalue("You must complete all fields in the Contact form before you can save the contact.","False");
+            boolean insert27 = myDb.addvalue("You cannot edit Contact forms.","False");
+            boolean insert28 = myDb.addvalue("You should always open and attachment before saving it.","False");
+            boolean insert29 = myDb.addvalue("You can delete e-mails from a Web-based e-mail account.","True");
+            boolean insert30 = myDb.addvalue("You can store Web-based e-mail messages in online folders.","True");
 
+            if(insert1==true && insert30==true)
+            {
+                Log.i("Insert","Hogaya");
+            }
+            else{
+                Log.i("Insert","No");
+            }
+        }
+
+
+    }
+
+    //For First time install app only
+    private boolean isFirstTime() {
+        if (firstTime == null) {
+            SharedPreferences mPreferences = this.getSharedPreferences("first_time", Context.MODE_PRIVATE);
+            firstTime = mPreferences.getBoolean("firstTime", true);
+            if (firstTime) {
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putBoolean("firstTime", false);
+                editor.commit();
+            }
+        }
+        return firstTime;
     }
 
     public void onSubmitClick(View view)
